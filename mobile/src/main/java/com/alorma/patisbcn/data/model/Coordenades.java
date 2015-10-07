@@ -8,4 +8,13 @@ public class Coordenades {
     public String y;
     public String name;
 
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("Coordenades{");
+        sb.append("x='").append(x).append('\'');
+        sb.append(", y='").append(y).append('\'');
+        sb.append(", name='").append(name).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }

@@ -10,4 +10,12 @@ public class Nivell {
 
     public String municipi;
 
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("Nivell{");
+        sb.append("codi=").append(codi);
+        sb.append(", municipi='").append(municipi).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }
