@@ -10,7 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.alorma.patisbcn.data.model.Acte;
+import com.alorma.patisbcn.domain.model.Acte;
 import com.alorma.patisbcn.data.parser.ActeParser;
 
 import java.io.InputStream;

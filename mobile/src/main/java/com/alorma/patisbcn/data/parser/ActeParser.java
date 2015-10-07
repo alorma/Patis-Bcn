@@ -1,9 +1,9 @@
 package com.alorma.patisbcn.data.parser;
 
-import com.alorma.patisbcn.data.model.Acte;
-import com.alorma.patisbcn.data.model.Adreca;
-import com.alorma.patisbcn.data.model.Coordenades;
-import com.alorma.patisbcn.data.model.Lloc;
+import com.alorma.patisbcn.domain.model.Acte;
+import com.alorma.patisbcn.domain.model.Adreca;
+import com.alorma.patisbcn.domain.model.Coordenades;
+import com.alorma.patisbcn.domain.model.Lloc;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;

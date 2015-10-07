@@ -1,4 +1,4 @@
-package com.alorma.patisbcn.data.model;
+package com.alorma.patisbcn.domain.model;
 
 import java.util.List;
 
