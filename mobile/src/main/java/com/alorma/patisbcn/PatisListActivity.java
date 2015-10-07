@@ -10,13 +10,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.alorma.patisbcn.data.factory.PatisRepositoryFactoryImpl;
+import com.alorma.patisbcn.domain.data.factory.PatisRepositoryFactory;
+import com.alorma.patisbcn.domain.interactor.GetPatisUseCase;
+import com.alorma.patisbcn.domain.interactor.InteractorCallback;
 import com.alorma.patisbcn.domain.model.Acte;
-import com.alorma.patisbcn.data.parser.ActeParser;
 
-import java.io.InputStream;
 import java.util.List;
 
-public class PatisListActivity extends AppCompatActivity {
+public class PatisListActivity extends AppCompatActivity implements InteractorCallback<List<Acte>> {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,14 +27,9 @@ public class PatisListActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        try {
-            ActeParser parser = new ActeParser();
-            InputStream is = getAssets().open("dades.xml");
-            List<Acte> actes = parser.parse(is);
-            Toast.makeText(this, "Actes: " + actes.size(), Toast.LENGTH_SHORT).show();
-        } catch (Exception ignored) {
-            ignored.printStackTrace();
-        }
+        PatisRepositoryFactory factory = new PatisRepositoryFactoryImpl(this);
+        GetPatisUseCase patisUseCase = new GetPatisUseCase(factory);
+        patisUseCase.getPatis(this);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -52,5 +49,10 @@ public class PatisListActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onCallback(List<Acte> value) {
+        Toast.makeText(this, "Actes: " + value.size(), Toast.LENGTH_SHORT).show();
     }
 }

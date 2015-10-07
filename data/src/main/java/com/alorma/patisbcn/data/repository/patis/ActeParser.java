@@ -1,4 +1,4 @@
-package com.alorma.patisbcn.data.parser;
+package com.alorma.patisbcn.data.repository.patis;
 
 import com.alorma.patisbcn.domain.model.Acte;
 import com.alorma.patisbcn.domain.model.Adreca;
