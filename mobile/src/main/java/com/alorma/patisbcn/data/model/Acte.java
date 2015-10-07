@@ -7,7 +7,7 @@ import java.util.List;
  */
 public class Acte {
 
-    public long id;
+    public String id;
     public String nom;
     public Lloc lloc_simple;
     public Data data;
