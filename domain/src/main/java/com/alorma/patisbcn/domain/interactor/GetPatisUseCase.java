@@ -1,5 +1,6 @@
 package com.alorma.patisbcn.domain.interactor;
 
+import com.alorma.patisbcn.domain.data.factory.PatisRepositoryFactory;
 import com.alorma.patisbcn.domain.data.repository.PatisRepository;
 import com.alorma.patisbcn.domain.data.repository.RepositoryCallback;
 import com.alorma.patisbcn.domain.model.Acte;
@@ -14,8 +15,8 @@ public class GetPatisUseCase implements Runnable {
     private final PatisRepository repository;
     private InteractorCallback<List<Acte>> callback;
 
-    public GetPatisUseCase(PatisRepository repository) {
-        this.repository = repository;
+    public GetPatisUseCase(PatisRepositoryFactory patisRepositoryFactory) {
+        this.repository = patisRepositoryFactory.getRepository();
     }
 
     public void getPatis(final InteractorCallback<List<Acte>> callback) {

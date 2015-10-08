@@ -10,8 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.alorma.patisbcn.data.repository.patis.PatisRepositoryImpl;
-import com.alorma.patisbcn.domain.data.repository.PatisRepository;
+import com.alorma.patisbcn.data.factory.PatisRepositoryFactoryImpl;
+import com.alorma.patisbcn.domain.data.factory.PatisRepositoryFactory;
 import com.alorma.patisbcn.domain.interactor.GetPatisUseCase;
 import com.alorma.patisbcn.domain.interactor.InteractorCallback;
 import com.alorma.patisbcn.domain.model.Acte;
@@ -27,8 +27,8 @@ public class PatisListActivity extends AppCompatActivity implements InteractorCa
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        PatisRepository repository = new PatisRepositoryImpl(this);
-        GetPatisUseCase patisUseCase = new GetPatisUseCase(repository);
+        PatisRepositoryFactory factory = new PatisRepositoryFactoryImpl(this);
+        GetPatisUseCase patisUseCase = new GetPatisUseCase(factory);
         patisUseCase.getPatis(this);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
