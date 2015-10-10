@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.alorma.patisbcn.data.CoordinatesHelper;
 import com.alorma.patisbcn.data.factory.PatisRepositoryFactoryImpl;
 import com.alorma.patisbcn.domain.data.factory.PatisRepositoryFactory;
 import com.alorma.patisbcn.domain.interactor.GetPatisUseCase;
@@ -56,6 +57,13 @@ public class PatisListActivity extends AppCompatActivity implements InteractorCa
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
+
+
+                for (Acte acte : value) {
+                    if (acte.lloc_simple != null && acte.lloc_simple.adreca_simple != null && acte.lloc_simple.adreca_simple.coordenades != null) {
+                        CoordinatesHelper.convert(acte.lloc_simple.adreca_simple.coordenades);
+                    }
+                }
                 Toast.makeText(PatisListActivity.this, "Actes: " + value.size(), Toast.LENGTH_SHORT).show();
             }
         });
