@@ -54,18 +54,11 @@ public class PatisListActivity extends AppCompatActivity implements InteractorCa
 
     @Override
     public void onCallback(final List<Acte> value) {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-
-
-                for (Acte acte : value) {
-                    if (acte.lloc_simple != null && acte.lloc_simple.adreca_simple != null && acte.lloc_simple.adreca_simple.coordenades != null) {
-                        CoordinatesHelper.convert(acte.lloc_simple.adreca_simple.coordenades);
-                    }
-                }
-                Toast.makeText(PatisListActivity.this, "Actes: " + value.size(), Toast.LENGTH_SHORT).show();
+        for (Acte acte : value) {
+            if (acte.lloc_simple != null && acte.lloc_simple.adreca_simple != null && acte.lloc_simple.adreca_simple.coordenades != null) {
+                CoordinatesHelper.convert(acte.lloc_simple.adreca_simple.coordenades);
             }
-        });
+        }
+        Toast.makeText(PatisListActivity.this, "Actes: " + value.size(), Toast.LENGTH_SHORT).show();
     }
 }

@@ -7,6 +7,6 @@ import java.util.List;
 /**
  * Created by Bernat on 07/10/2015.
  */
-public interface PatisRepository {
+public interface PatisRepository extends Runnable{
     public void loadPatis(RepositoryCallback<List<Acte>> result);
 }
