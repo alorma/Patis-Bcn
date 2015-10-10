@@ -18,7 +18,4 @@
 
     <include layout="@layout/content_patis_list" />
 
-    <include
-        layout="@layout/fab"/>
-
 </android.support.design.widget.CoordinatorLayout>
